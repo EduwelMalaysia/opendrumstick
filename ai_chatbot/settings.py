@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 # Ensure this line exists at the top of settings.py
@@ -7,12 +8,14 @@ SECRET_KEY = 'django-insecure-dev-key-change-before-deploying-12345'
 
 DEBUG = True 
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 ROOT_URLCONF = 'ai_chatbot.urls'
 
 # For local development
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['64.118.143.117', 'localhost', '127.0.0.1']
 
 WSGI_APPLICATION = 'ai_chatbot.wsgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -46,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 TEMPLATES = [
