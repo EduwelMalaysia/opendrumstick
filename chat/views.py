@@ -14,7 +14,7 @@ def index_view(request):
 load_dotenv()
 
 HF_TOKEN = os.getenv("HUGGING_FACE_TOKEN")
-client = InferenceClient(model="Qwen/Qwen2.5-72B-Instruct", token=HF_TOKEN)
+client = InferenceClient(model="deepseek-ai/DeepSeek-R1-Distill-Qwen-14B", token=HF_TOKEN)
 
 @csrf_exempt  # Remove this and add CSRF token in fetch() for production
 @require_POST

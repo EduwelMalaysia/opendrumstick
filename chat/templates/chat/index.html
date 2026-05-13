@@ -1,34 +1,189 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenDrumStick Chatbot</title>
-    
+    <title>OpenDrumStick</title>
+
     <!-- ✅ Markdown & Syntax Highlighter CDNs -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- App Styles -->
     <link rel="stylesheet" href="{% static 'chat/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'chat/css/landing.css' %}">
 </head>
+
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h2>AI Assistant</h2>
-            <span class="status">● Online</span>
+    <header>
+        <div class="container navbar">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+
+            <ul class="nav-links">
+                <li><a href="#learning">Coding</a></li>
+                <li><a href="#" id="aiAgentHeaderLink">AI Agent</a></li>
+            </ul>
         </div>
-        <div class="chat-messages" id="chatMessages">
-            <div class="message bot">
-                <div class="message-content">Hello! How can I help you today?</div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <img src="{% static 'chat/images/ODS image.png' %}" alt="OpenDrumStick Logo" class="hero-logo"
+                    style="width: 150px; margin-bottom: 20px;">
+                <h1 class="text-gradient">OpenDrumStick</h1>
+                <p class="subtitle accent-text" style="font-weight: 500; font-size: 1.4rem;">The Malaysia 1st free AI
+                    agent</p>
+                <p class="subtitle" style="margin-top: 10px;">ODS help manage your daily idea and your documentation and
+                    planning</p>
+                <button class="btn" id="openChatBtn" style="margin-top: 20px;">
+                    <i class="fa-solid fa-drumstick-bite"></i> OpenDrumStick Bot
+                </button>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">What Our Users Say</h2>
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Dummy Testimonial 1 -->
+                        <div class="testimonial">
+                            <p>"OpenDrumStick has revolutionized how I plan my projects. Highly recommended!"</p>
+                            <div class="author">
+                                <img src="https://i.pravatar.cc/150?img=32" alt="Ahmad F.">
+                                <div>
+                                    <h4 style="margin-bottom: 2px;">Ahmad F.</h4>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Software Engineer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dummy Testimonial 2 -->
+                        <div class="testimonial">
+                            <p>"The best AI assistant I've used. It's completely free and extremely helpful."</p>
+                            <div class="author">
+                                <img src="https://i.pravatar.cc/150?img=47" alt="Sarah L.">
+                                <div>
+                                    <h4 style="margin-bottom: 2px;">Sarah L.</h4>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Product Manager</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dummy Testimonial 3 -->
+                        <div class="testimonial">
+                            <p>"Documentation is a breeze now. Great job Eduwel team!"</p>
+                            <div class="author">
+                                <img src="https://i.pravatar.cc/150?img=12" alt="Michael C.">
+                                <div>
+                                    <h4 style="margin-bottom: 2px;">Michael C.</h4>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Freelancer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-nav" id="carouselNav">
+                        <div class="carousel-dot active" data-index="0"></div>
+                        <div class="carousel-dot" data-index="1"></div>
+                        <div class="carousel-dot" data-index="2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="learning">
+            <div class="container">
+                <h2 class="section-title">Coding Learning Platform</h2>
+                <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: center;">
+                    <div class="platform-card">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Learn to Code with ODS</h3>
+                        <p style="margin-top: 15px; color: var(--text-muted); font-size: 1.1rem;">
+                            Master programming concepts with our interactive tutorials and AI guidance. <br><br>
+                            <span class="accent-text" style="font-weight: 600;"><i class="fa-solid fa-rocket"></i>
+                                Coming Soon:</span> Online IDE to code on the spot directly from your browser!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sponsors">
+            <div class="container">
+                <h2 class="section-title">Sponsors & Partners</h2>
+                <div class="sponsors-grid">
+                    <div class="sponsor-item"><i class="fa-brands fa-aws"></i> AWS</div>
+                    <div class="sponsor-item"><i class="fa-brands fa-microsoft"></i> Microsoft</div>
+                    <div class="sponsor-item"><i class="fa-brands fa-google"></i> Google</div>
+                    <div class="sponsor-item"><i class="fa-brands fa-github"></i> GitHub</div>
+                    <div class="sponsor-item"><i class="fa-brands fa-docker"></i> Docker</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3><i class="fa-solid fa-drumstick-bite"></i> OpenDrumStick</h3>
+                <p style="color: var(--text-muted); max-width: 300px; margin-top: 10px;">Your personal AI assistant for
+                    daily ideas, documentation, and planning.</p>
+            </div>
+            <div class="footer-social">
+                <h4 style="margin-bottom: 15px; color: var(--text-main);">Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
             </div>
         </div>
-        <form class="chat-input" id="chatForm">
-            <input type="text" id="messageInput" placeholder="Type your message..." autocomplete="off" required>
-            <button type="submit" id="sendBtn">Send</button>
-        </form>
+        <div class="container copyright">
+            <p>OpenDrumStick is powered by Eduwel Sdn Bhd</p>
+        </div>
+    </footer>
+
+    <!-- Chat Modal Overlay -->
+    <div class="chat-modal-overlay" id="chatOverlay">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2>AI Assistant</h2>
+                <div class="status-container status-online" id="statusContainer">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Online</span>
+                    <button id="closeChatBtn"
+                        style="background:none; border:none; color:var(--text-muted); font-size: 1.2rem; margin-left: 10px; cursor:pointer;"><i
+                            class="fa-solid fa-times"></i></button>
+                </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <div class="message-content">Hello! How can I help you today?</div>
+                </div>
+            </div>
+            <form class="chat-input" id="chatForm">
+                <input type="text" id="messageInput" placeholder="Type your message..." autocomplete="off" required>
+                <button type="submit" id="sendBtn">Send</button>
+            </form>
+        </div>
     </div>
+
+    <!-- Floating Chat Button -->
+    <button class="floating-chat-btn" id="floatingChatBtn" title="Help & Guidelines">
+        <i class="fa-solid fa-comment-dots"></i>
+    </button>
+
+    <!-- App Logic -->
     <script src="{% static 'chat/js/script.js' %}"></script>
 </body>
+
 </html>
