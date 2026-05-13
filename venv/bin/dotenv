@@ -1,4 +1,4 @@
-#!/root/opendrumstick/venv/bin/python3
+#!/var/www/opendrumstick/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

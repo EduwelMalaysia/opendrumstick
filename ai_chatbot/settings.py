@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-dev-key-change-before-deploying-12345'
 
-DEBUG = True 
+DEBUG = False
 
 STATIC_URL = '/static/'
 
@@ -15,7 +15,9 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 ROOT_URLCONF = 'ai_chatbot.urls'
 
 # For local development
-ALLOWED_HOSTS = ['64.118.143.117', 'localhost', '127.0.0.1']
+#ALLOWED_HOSTS = ['64.118.143.117', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','64.118.143.117', 'eduwel.asia', 'www.eduwel.asia']
+
 
 WSGI_APPLICATION = 'ai_chatbot.wsgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

@@ -38,7 +38,7 @@ def chat_api(request):
         # Call Hugging Face API
         response = client.chat_completion(
             messages=request.session["chat_history"],
-            max_tokens=500
+            max_tokens=1000
         )
         bot_reply = response.choices[0].message.content
 
